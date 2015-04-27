@@ -1,263 +1,554 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>GZaph</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
-		<link rel="stylesheet" type="text/css" href="css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="css/gzaph.css" />
-		<link href="css/lightbox.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/plusgallery.css">
-		<!-- Not in use -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css">
+		<link href="css/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css">
+		<link href="css/animate.min.css" rel="stylesheet" type="text/css">
+		<link href="css/custom.css" rel="stylesheet" type="text/css">
 
 		<!-- JS -->
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-		<script src="galleria/galleria-1.3.6.min.js"></script>
-		<script src="galleria/plugins/flickr/galleria.flickr.min.js"></script>
-		<script src="js/lightbox.min.js"></script>
-		<script type="text/javascript" src="js/plusgallery.js"></script>
-		<!-- Not in use -->
-		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
-		<script type='text/javascript' src='js/blur.min.js'></script>
-		<script type="text/javascript" src="js/gzaph.js"></script>
-
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('#fullpage').fullpage({
-					slidesColor : ['#1bbc9b', '#5CB85C', '#ccddff', 'A0D468'],
-					sectionsColor : ['#1bbc9b', '#52ACCC', '#222222', '#F05656', '#465B74', '#333333'],
-					anchors : ['home', 'page1', 'page2', 'page3', 'page4', 'page5'],
-					menu : '#menu',
-					onLeave : function(index, direction) {
-						if (direction == 3) {
-							galleriaResize();
-						}
-					}
-				});
-
-				$(window).resize(function() {
-					galleriaResize();
-				});
-
-			});
-
-			Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
-			Galleria.configure({
-				transition : 'fade',
-				swipe : 'disabled',
-				showInfo : false
-			});
-
-			var flickr = new Galleria.Flickr();
-			flickr.setOptions({
-				max : 30,
-				imageSize : 'big',
-				thumbSize : 'thumb',
-				thumbnails : 'lazy',
-			}).user('belano', function(data) {
-				Galleria.run('.galleria', {
-					dataSource : data
-				});
-			});
-
-			$('#plusgallery').plusGallery();
-		</script>
-
-		<style type="text/css">
-			input, textarea {
-				opacity: 0.8;
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.fancybox.pack.js"></script>
+		<script src="js/jquery.fancybox-buttons.js"></script>
+		<script src="js/custom.js"></script>
+		<style>
+			section {
+				padding-top: 80px;
+				padding-bottom: 100px;
 			}
-			#navbar-collapse {
-				font-size: medium;
-			}
-			.section.table {
-				margin: 0 auto;
-			}
-			.controlArrow {
-				opacity: 0.5;
-			}
-			.controlArrow:hover {
-				opacity: 0.8;
-			}
-			.galleria {
+			.carousel-section #carousel-example-generic {
+				/*background-color: #DE5E60;*/
+				display: block;
 				width: 100%;
-				height: 60px;
-				background-color: #222222 !important;
-			}
-			.galleria-container {
-				background-color: #222222 !important;
+				margin-top: 50px !important;
 			}
 
-			#flickrlink img {
-				float: right;
+			.carousel-section .row {
+				display: block;
+				height: 120% !important;
+				padding-top: 20px !important;
+				padding-bottom: 20px !important;
+				vertical-align: middle !important;
+				border: 0px solid black !important;
+			}
+
+			.carousel-section .icon {
+
+				border-radius: 10%;
+			}
+
+			.carousel-section .carousel-control {
+				top: 50%;
+				width: 40px;
 				height: 40px;
+				padding-top: 5px;
 			}
 
+			.small-icon {
+				width: 100%;
+				border-radius: 10%;swoosh javascript
+			}
+
+			.store-icon {
+				width: 100%;
+			}
+
+			.vcenter {
+				float: none !important;
+				display: table-cell !important;
+				vertical-align: middle !important;
+			}
+
+			.float-right {
+				float: right;
+			}
+
+			.float-left {
+				float: left;
+			}
+			.carousel-section {
+				background-color: #DE5E60;
+			}
+			#probowl-page {
+				background-color: #38BEEA !important;
+			}
+
+			#twenty4-page {
+				background-color: #65E0C1
+			}
+
+			#ippt-page {
+				background-color: #F3C500
+			}
+			.ss-image {
+				height: 258px !important;
+			}
+
+			.ss-list {
+				list-style-type: none;
+				display: inline-block;
+			}
+
+			div {
+				border: 0px solid black !important;
+			}
 		</style>
+
+		<script type="text/javascript" >
+			$(document).ready(function() {
+				$('.carousel').carousel()
+			});
+		</script>
 	</head>
 
 	<body>
-		<nav id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html">GZaph</a>
-				</div>
+		<header>
 
-				<div class="collapse navbar-collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li data-menuanchor="home" class="active">
-							<a href="#home">Home</a>
-						</li>
-
-						<li data-menuanchor="page1">
-							<a href="#page1">Page 1</a>
-						</li>
-
-						<li data-menuanchor="page2">
-							<a href="#page2">Page 2</a>
-						</li>
-
-						<li data-menuanchor="page3">
-							<a href="#page3">Page 3</a>
-						</li>
-
-						<li data-menuanchor="page4">
-							<a href="#page4">Page 4</a>
-						</li>
-
-						<li data-menuanchor="page5">
-							<a href="#page5">Page 5</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div id="fullpage">
-			<div class="section" id="section0">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="container">
-					<h1>Home</h1>
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavigation">
+							<i class="fa fa-bars"></i>
+						</button>
+						<a href="index.html" class="navbar-brand">Gzaph</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="myNavigation">
+						<ul class="nav navbar-nav navbar-right animated fadeInDown">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mobile Apps <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<a href="#probowl-page">ProBowl</a>
+									</li>
+									<li>
+										<a href="#twenty4-page">Twenty4</a>
+									</li>
+									<li>
+										<a href="#ippt-page">IPPT Calculator</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#page2" class="scroll">About Me</a>
+							</li>
+							<li>
+								<a href="#page3" class="scroll">Contact Me</a>
+							</li>
+						</ul>
+						</li>
+
+						</ul>
+					</div>
 				</div>
-			</div>
+			</nav>
+		</header>
+		<section class="carousel-section">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
 
-			<div class="section" id="section1">
-				<div class="slide">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12 bg-content">
-								<h1>ProBowl</h1>
-								<div class="row">
-									<div class="col-sm-4 col-sm-4 col-md-3">
-										<a class="example-image-link" href="images/probowl1.PNG" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/probowl1_thumb.png" alt=""/></a>
-										<a class="example-image-link" href="images/probowl2.PNG" data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img class="example-image" src="images/probowl2_thumb.png" alt="" /></a>
-										<a class="example-image-link" href="images/probowl3.PNG" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="images/probowl3_thumb.png" alt="" /></a>
-
-										<!--<img id="probowl-img" src="images/probowl1.PNG" class="img-responsive img-rounded" alt="Responsive image" >-->
-									</div>
-									</br>
-									<div class="col-sm-8 col-md-9">
-										<p>
-											ProBowl Stats is a user-friendly application that helps to keep track of your bowling games at every practice or league games.
-
-											Ever played your best series but you don't remember when?
-											Do you remember your frames' score when you achieved your highest game?
-											How often did you get a strike or a spare for each game?
-
-											Compute detailed statistics of your games to monitor your progress and understand your strength/weakness.
-
-											Want to share your game play with your friends?
-											No problem, share your game scoresheet on popular social network platform.
-
-											No Advertisement and Free!
-										</p>
-										</br>
-									</div>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<div class="container">
+							<div class="row">
+								<a href="#probowl-page">
+								<div class="vcenter col-xs-4">
+									<img class="icon img-responsive" src="images/icon01.png">
 								</div>
-								</br>
-								<a href="https://play.google.com/store/apps/details?id=com.gabmobi.BowlingStats" target="_blank"><img class="androidBadge" src="http://developer.android.com/images/brand/en_generic_rgb_wo_45.png"/></a>
-								<a href="https://itunes.apple.com/sg/app/pro-bowling-stats/id890134051?mt=8" target="_blank"><img class="iosBadge" src="images/appstore.png" height="45" width="150" /></a>
-
+								<div class="vcenter col-xs-6">
+									<h1>ProBowl</h1>
+								</div>
+							</div>
+							</a>
+							<div class="carousel-caption"></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="container">
+							<div class="row">
+								<a href="#twenty4-page">
+								<div class="vcenter col-xs-4">
+									<img class="icon img-responsive" src="images/icon02.png">
+								</div>
+								<div class="vcenter col-xs-6">
+									<h1>Twenty4</h1>
+								</div> </a>
+								<div class="carousel-caption"></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="container">
+							<div class="row">
+								<a href="#ippt-page">
+								<div class="vcenter col-xs-4">
+									<img class="icon img-responsive" src="images/icon03.png">
+								</div>
+								<div class="vcenter col-xs-6">
+									<h1>IPPT Calculator</h1>
+								</div> </a>
+								<div class="carousel-caption"></div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev"> <i class="fa fa-arrow-left"></i> </a>
+				<a class="right carousel-control" href="#carousel-example-generic"  data-slide="next"> <i class="fa fa-arrow-right"></i> </a>
+			</div>
+		</section>
 
-				<div class="slide">
-					<div class="container">
+		<section id="probowl-page">
+			<div class="container">
+				<h1>ProBowl Stats</h1>
+				<div class="row">
+					<div class="col-md-3">
 						<div class="row">
-							<h1>Slide 2</h1>
-						</div>
-					</div>
-				</div>
+							<div class="col-md-12">
+								<img class="small-icon" src="images/icon01.png">
+								<br>
+								<br>
+							</div>
 
-				<div class="slide">
-					<div class="container">
+							<div class="col-md-12" block>
+								<label class="float-right">Version 1.1.4</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Category: Sports</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Released: Jul 02, 2014</label>
+							</div>
+						</div>
+						<br>
 						<div class="row">
-							<h1>Slide 3</h1>
+							<div class="col-md-12">
+								<a href="https://itunes.apple.com/us/app/probowl-stats/id890134051" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://play.google.com/store/apps/details?id=com.gabmobi.BowlingStats" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Description</h3>
+								<p>
+									ProBowl Stats is a user-friendly application that helps to keep track of your bowling games at every practice or league games.
+									<br>
+									<br>
+									Ever played your best series but you don't remember when?
+									<br>
+									Do you remember your frames' score when you achieved your highest game?
+									<br>
+									How often did you get a strike or a spare for each game?
+									<br>
+									<br>
+									Compute detailed statistics of your games to monitor your progress and understand your strength/weakness.
+									<br>
+									<br>
+									Want to share your game play with your friends?
+									<br>
+									No problem, share your game scoresheet on popular social network platform.
+
+									2 ways of entering your game scores.
+									<br>
+									- Entry of every frame's pins fall
+									<br>
+									- Or just enter your score after each game
+								</p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Screenshots</h3>
+							</div>
+							<div class="col-md-12">
+								<ul class="ss-wrapper">
+									<li class="ss-list">
+										<a href="images/screenshots/pb1.png"><img class="ss-image" src="images/screenshots/pb1.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/pb2.png"><img class="ss-image" src="images/screenshots/pb2.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/pb3.png"><img class="ss-image" src="images/screenshots/pb3.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/pb4.png"><img class="ss-image" src="images/screenshots/pb4.png"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Reviews</h3>
+							</div>
+							<div class="col-md-12">
+								<div class="quotes">
+									<i class="float-left fa fa-quote-left"></i>
+									<div class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<div class="item active">
+												<p>
+													<b>Simplicity is good</b>
+													<br>
+													5 stars for no Ads. Keying in score is easy. UI can be improved.
+												</p>
+											</div>
+											<div class="item">
+												<p>
+													<b>Cool & fun! Super cool app!</b> I can now record my games without hassle and share with friends too! Awesome.
+												</p>
+											</div>
+											<div class="item">
+												<p>
+													<b>Good but room for improvement</b> No ads definitely is a plus for this apps.. Allows you to see the score of every frame is a plus as well... Will worth 5 stars if able to show what are the pins that you have hit or missed...
+												</p>
+											</div>
+										</div>
+									</div>
+									<i class="float-right fa fa-quote-right"></i>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<div class="section" id="section2">
-				<div class="container-fluid">
-					<div id="flickr-row" class="row">
-						<div class="col-sm-6">
-							<h2 class="log">My latest photos on Flickr</h2>
+		<section id="twenty4-page">
+			<div class="container">
+				<h1>Twenty4</h1>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-12">
+								<img class="small-icon" src="images/icon02.png">
+								<br>
+								<br>
+							</div>
+
+							<div class="col-md-12" block>
+								<label class="float-right">Version 1.0.0</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Category: Games</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Released: Jul 27, 2014</label>
+							</div>
 						</div>
-						<div class="col-sm-6">
-							<a id="flickrlink" href="http://www.flickr.com/photos/belano/" title="See my photos on Flickr!" target="_blank"> <img src="images/flickrimg.png" alt=""> </a>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://itunes.apple.com/us/app/twenty4/id900097186" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://play.google.com/store/apps/details?id=com.gzaph.cal24game" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
+							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Description</h3>
+								<p>
+									Challenge yourself in this simple mathematics game.
+									<br>
+									<br>
+									How to play?
+									<br>
+									Do you remember your frames' score when you achieved your highest game?
+									<br>
+									In each puzzle, there are 4 random numbers. Use basic mathematical operations (+, -, x, /) on all 4 numbers to achieve a result of '24'. Each number can only be used once.
+									<br>
+									Solve as many puzzles within 5 minutes.
+									<br>
+									All the puzzles are solvable!
+								</p>
+							</div>
+						</div>
 
-						<div class="galleria">
-							<!--
-							<img src="photo1.jpg">
-							<img src="photo2.jpg">
-							<img src="photo3.jpg">
-							-->
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Screenshots</h3>
+							</div>
+							<div class="col-md-12">
+								<ul class="ss-wrapper">
+									<li class="ss-list">
+										<a href="images/screenshots/tf1.png"><img class="ss-image" src="images/screenshots/tf1.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/tf2.png"><img class="ss-image" src="images/screenshots/tf2.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/tf3.png"><img class="ss-image" src="images/screenshots/tf3.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/tf4.png"><img class="ss-image" src="images/screenshots/tf4.png"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Reviews</h3>
+							</div>
+							<div class="col-md-12">
+								<div class="quotes">
+									<i class="float-left fa fa-quote-left"></i>
+									<div class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<div class="item active">
+												<p>
+													<b>I love this game! ♥️ </b>
+													<br>
+													This game is based on the card game "24" which I used to play in middle school. This game makes you think unlike other games out there. Thanks!
+												</p>
+											</div>
+											<div class="item">
+												<p>
+													Challenging game! Keep the mind actively working
+												</p>
+											</div>
+											<div class="item">
+												<p>
+													<b>Interesting game!</b>
+												</p>
+											</div>
+
+										</div>
+									</div>
+									<i class="float-right fa fa-quote-right"></i>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<div class="section" id="section3">
-				<div class="container">
-					<div class="row">
-						<h1>Page 3</h1>
-					</div>
-				</div>
-			</div>
+		<section id="ippt-page">
+			<div class="container">
+				<h1>IPPT Calculator</h1>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-12">
+								<img class="small-icon" src="images/icon03.png">
+								<br>
+								<br>
+							</div>
 
-			<div class="section" id="section4">
-				<div class="container">
-					<h1>Page 4</h1>
-				</div>
-			</div>
-
-			<div class="section" id="section5">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 bg-content">
-							<h1>Page 5</h1>
+							<div class="col-md-12" block>
+								<label class="float-right">Version 1.0.2</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Category: Utilities</label>
+							</div>
+							<div class="col-md-12" block>
+								<label class="float-right">Released: Aug 9, 2014</label>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="#" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://play.google.com/store/apps/details?id=com.gzaph.ippt" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
+							</div>
 						</div>
 					</div>
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Description</h3>
+								<p>
+									IPPT Calculator is an app that helps you to calculate your scores/points in this new IPPT scoring system.
+									<br>
+									<br>
+									With this app, you are able to
+									<br>
+									1) Determine the number of push-ups, sit-ups and 2.4Km timing to achieve the points
+									<br>
+									2) Determine the points achieved by the number of push-ups, sit-ups and 2.4Km timing.
+									<br>
+									3) Set your target award and set the respective goals for individual station.
+									<br>
+									4) Overview of scoring system based on your age.
+								</p>
+							</div>
+						</div>
 
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Screenshots</h3>
+							</div>
+							<div class="col-md-12">
+								<ul class="ss-wrapper">
+									<li class="ss-list">
+										<a href="images/screenshots/ip1.png"><img class="ss-image" src="images/screenshots/ip1.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/ip2.png"><img class="ss-image" src="images/screenshots/ip2.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/ip3.png"><img class="ss-image" src="images/screenshots/ip3.png"></a>
+									</li>
+									<li class="ss-list">
+										<a href="images/screenshots/ip4.png"><img class="ss-image" src="images/screenshots/ip4.png"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Reviews</h3>
+							</div>
+							<div class="col-md-12">
+								<div class="quotes">
+									<i class="float-left fa fa-quote-left"></i>
+									<div class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+
+										</div>
+									</div>
+									<i class="float-right fa fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		</section>
 	</body>
 </html>
