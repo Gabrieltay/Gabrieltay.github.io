@@ -1,0 +1,265 @@
+/* Smaller Smartphones ----------- iPhone5*/
+@media (max-width: 367px) {
+  .num-container {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .num-btn {
+    margin: 5px !important;
+    padding: 5px;
+    font-size: 4em !important;
+  }
+
+  .op-btn {
+    margin: 5px !important;
+    padding: 5px;
+    font-size: 2.5em !important;
+  }
+
+  .text-btn {
+    font-size: 1em !important;
+  }
+
+  #score-label {
+    font-size: 1.5em !important;
+  }
+
+  #time-label {
+    font-size: 1.5em !important;
+  }
+
+  .inline li img {
+    width: 36px;
+  }
+
+  .home-btn {
+    font-size: 1.5em;
+  }
+  .home-btn .fa {
+    font-size: 1.5em;
+  }
+
+  #result-page label {
+    font-size: 1.5em;
+  }
+  #result-page .result-btn {
+    font-size: 1.5em;
+  }
+
+  .nav-btn .fa {
+    font-size: 2em;
+  }
+}
+/* Smartphones ----------- */
+@media (min-width: 368px) and (max-width: 767px) {
+  .num-container {
+    margin-top: 12.5px !important;
+    margin-bottom: 12.5px !important;
+  }
+
+  .num-btn {
+    margin: 6.25px !important;
+    padding: 6.25px;
+    font-size: 4.8em !important;
+  }
+
+  .op-btn {
+    margin: 6.25px !important;
+    padding: 6.25px;
+    font-size: 3em !important;
+  }
+
+  .text-btn {
+    font-size: 1.2em !important;
+  }
+
+  #score-label {
+    font-size: 1.8em !important;
+  }
+
+  #time-label {
+    font-size: 1.8em !important;
+  }
+
+  .inline li img {
+    width: 54px;
+  }
+
+  .home-btn {
+    font-size: 1.5em;
+  }
+  .home-btn .fa {
+    font-size: 1.5em;
+  }
+
+  #result-page label {
+    font-size: 1.5em;
+  }
+  #result-page .result-btn {
+    font-size: 1.5em;
+  }
+
+  .nav-btn .fa {
+    font-size: 2.4em;
+  }
+}
+/* Tablets ----------- ipad */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .num-container {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .num-btn {
+    margin: 10px !important;
+    padding: 10px;
+    font-size: 8em !important;
+  }
+
+  .op-btn {
+    margin: 10px !important;
+    padding: 10px;
+    font-size: 5em !important;
+  }
+
+  .text-btn {
+    font-size: 2em !important;
+  }
+
+  #score-label {
+    font-size: 3em !important;
+  }
+
+  #time-label {
+    font-size: 3em !important;
+  }
+
+  .inline li img {
+    width: 72px;
+  }
+
+  .home-btn {
+    font-size: 1.5em;
+  }
+  .home-btn .fa {
+    font-size: 1.5em;
+  }
+
+  #result-page label {
+    font-size: 1.5em;
+  }
+  #result-page .result-btn {
+    font-size: 1.5em;
+  }
+
+  .nav-btn .fa {
+    font-size: 4em;
+  }
+}
+/* Desktop ----------- */
+@media (min-width: 1024px) {
+  .num-container {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .num-btn {
+    margin: 15px !important;
+    padding: 15px;
+    font-size: 10em !important;
+  }
+
+  .op-btn {
+    margin: 15px !important;
+    padding: 15px;
+    font-size: 6.25em !important;
+  }
+
+  .text-btn {
+    font-size: 2.5em !important;
+  }
+
+  #score-label {
+    font-size: 3.75em !important;
+  }
+
+  #time-label {
+    font-size: 3.75em !important;
+  }
+
+  .inline li img {
+    width: 72px;
+  }
+
+  .home-btn {
+    font-size: 1.5em;
+  }
+  .home-btn .fa {
+    font-size: 1.5em;
+  }
+
+  #result-page label {
+    font-size: 1.5em;
+  }
+  #result-page .result-btn {
+    font-size: 1.5em;
+  }
+
+  .nav-btn .fa {
+    font-size: 5em;
+  }
+}
+/* Large Screen ----------- */
+@media (min-width: 1824px) {
+  .num-container {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .num-btn {
+    margin: 5px !important;
+    padding: 5px;
+    font-size: 6em !important;
+  }
+
+  .op-btn {
+    margin: 5px !important;
+    padding: 5px;
+    font-size: 3.75em !important;
+  }
+
+  .text-btn {
+    font-size: 1.5em !important;
+  }
+
+  #score-label {
+    font-size: 2.25em !important;
+  }
+
+  #time-label {
+    font-size: 2.25em !important;
+  }
+
+  .inline li img {
+    width: 72px;
+  }
+
+  .home-btn {
+    font-size: 1.5em;
+  }
+  .home-btn .fa {
+    font-size: 1.5em;
+  }
+
+  #result-page label {
+    font-size: 1.5em;
+  }
+  #result-page .result-btn {
+    font-size: 1.5em;
+  }
+
+  .nav-btn .fa {
+    font-size: 3em;
+  }
+}

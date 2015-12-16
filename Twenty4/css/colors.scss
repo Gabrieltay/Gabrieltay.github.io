@@ -1,0 +1,51 @@
+section {
+  background-color: #E7F9F9 !important;
+}
+
+.num-btn.disabled {
+    filter: alpha(opacity=15);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .15;
+}
+
+#in1 {
+  background-color: #7BC491;  
+}
+
+#in1.selected{
+  background-color: #629D74;  
+}
+
+#in2 {
+  background-color: #F5696C;  
+}
+
+#in2.selected{
+  background-color: #C45456;
+}
+
+#in3 {
+  background-color: #14B9D5;  
+}
+
+#in3.selected{
+  background-color: #1094AA;
+}
+
+#in4 {
+  background-color: #ECC850;  
+}
+
+#in4.selected{
+  background-color: #BDA040;
+}
+
+.op-btn {
+  background-color: #7bD0D1;
+}
+
+.op-btn.selected {
+  background-color: #569292 !important;
+}
+

@@ -1,0 +1,81 @@
+$padSize:5px;
+ $marginSize:5px;
+ $btnNumSize:4em;
+ $btnOpSize:2.5em;
+ $btnTextSize:1em;
+ $imgPencilSize:36px;
+ $labelScoreSize:1.5em;
+ $labelHourSize:1.5em;
+ $btnCenterSize:1.5em;
+ $navSize: 2em;
+@mixin sizing($fontfactor, $imgfactor, $spaceFactor) {
+    .num-container {
+        margin-top: $marginSize * 2 * $spaceFactor !important;
+        margin-bottom: $marginSize * 2 * $spaceFactor !important;
+    }
+    .num-btn {
+        margin: $marginSize * $spaceFactor !important;
+        padding: $padSize * $spaceFactor;
+        font-size: $btnNumSize*$fontfactor !important;
+    }
+    .op-btn {
+        margin: $marginSize * $spaceFactor !important;
+        padding: $padSize * $spaceFactor;
+        font-size: $btnOpSize*$fontfactor !important;
+    }
+    .text-btn {
+        font-size: $btnTextSize*$fontfactor !important;
+    }
+    #score-label {
+        font-size: $labelScoreSize*$fontfactor !important;
+    }
+    #time-label {
+        font-size: $labelHourSize*$fontfactor !important;
+    }
+    .inline li img {
+        width: $imgPencilSize*$imgfactor;
+    }
+    .home-btn {
+        font-size: $btnCenterSize;
+        .fa {
+            font-size: $btnCenterSize;
+        }
+    }
+    #result-page {
+        label {
+            font-size: $btnCenterSize;
+        }
+
+        .result-btn {
+            font-size: $btnCenterSize;
+        }
+    }
+     .nav-btn .fa {
+        font-size: $navSize * $fontfactor;
+    }
+}
+/* Smaller Smartphones ----------- iPhone5*/
+
+@media (max-width: 367px) {
+    @include sizing(1, 1, 1);
+}
+/* Smartphones ----------- */
+
+@media (min-width: 368px) and (max-width: 767px) {
+    @include sizing(1.2, 1.5, 1.25);
+}
+/* Tablets ----------- ipad */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    @include sizing(2, 2, 2);
+}
+/* Desktop ----------- */
+
+@media (min-width: 1024px) {
+    @include sizing(2.5, 2, 3);
+}
+/* Large Screen ----------- */
+
+@media (min-width: 1824px) {
+    @include sizing(1.5, 2, 1);
+}
