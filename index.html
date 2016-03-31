@@ -1,554 +1,347 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width">
+		<title>Cal 24 Game</title>
 
 		<!-- CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css">
-		<link href="css/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css">
-		<link href="css/animate.min.css" rel="stylesheet" type="text/css">
-		<link href="css/custom.css" rel="stylesheet" type="text/css">
-
+		<link rel="stylesheet" href="css/jquery.mobile.flatui.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/animate+animo.css">
+		<link rel="stylesheet" href="css/cal24.css" />
 		<!-- JS -->
 		<script src="js/jquery-2.0.3.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.fancybox.pack.js"></script>
-		<script src="js/jquery.fancybox-buttons.js"></script>
-		<script src="js/custom.js"></script>
-		<style>
-			section {
-				padding-top: 80px;
-				padding-bottom: 100px;
-			}
-			.carousel-section #carousel-example-generic {
-				/*background-color: #DE5E60;*/
-				display: block;
-				width: 100%;
-				margin-top: 50px !important;
-			}
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script src="js/animo.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script src="js/calculator.js"></script>
+		<script src="js/jquery-picture.js"></script>
+		<!-- cordova -->
+		<!-- cordova facebook plugin -->
+		<!-- facebook js sdk -->
+		
+		<script>
 
-			.carousel-section .row {
-				display: block;
-				height: 120% !important;
-				padding-top: 20px !important;
-				padding-bottom: 20px !important;
-				vertical-align: middle !important;
-				border: 0px solid black !important;
-			}
-
-			.carousel-section .icon {
-
-				border-radius: 10%;
-			}
-
-			.carousel-section .carousel-control {
-				top: 50%;
-				width: 40px;
-				height: 40px;
-				padding-top: 5px;
-			}
-
-			.small-icon {
-				width: 100%;
-				border-radius: 10%;swoosh javascript
-			}
-
-			.store-icon {
-				width: 100%;
-			}
-
-			.vcenter {
-				float: none !important;
-				display: table-cell !important;
-				vertical-align: middle !important;
-			}
-
-			.float-right {
-				float: right;
-			}
-
-			.float-left {
-				float: left;
-			}
-			.carousel-section {
-				background-color: #DE5E60;
-			}
-			#probowl-page {
-				background-color: #38BEEA !important;
-			}
-
-			#twenty4-page {
-				background-color: #65E0C1
-			}
-
-			#ippt-page {
-				background-color: #F3C500
-			}
-			.ss-image {
-				height: 258px !important;
-			}
-
-			.ss-list {
-				list-style-type: none;
-				display: inline-block;
-			}
-
-			div {
-				border: 0px solid black !important;
-			}
-		</style>
-
-		<script type="text/javascript" >
-			$(document).ready(function() {
-				$('.carousel').carousel()
-			});
+			window.addEventListener('load', function() {
+				new FastClick(document.body);
+				new FastClick($(".fastclick"));
+				//getLoginStatus();
+			}, false);
+			
 		</script>
 	</head>
-
 	<body>
-		<header>
+		<div id="fb-root"></div>
 
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavigation">
-							<i class="fa fa-bars"></i>
-						</button>
-						<a href="index.html" class="navbar-brand">Gzaph</a>
-					</div>
-
-					<div class="collapse navbar-collapse" id="myNavigation">
-						<ul class="nav navbar-nav navbar-right animated fadeInDown">
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mobile Apps <span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="#probowl-page">ProBowl</a>
-									</li>
-									<li>
-										<a href="#twenty4-page">Twenty4</a>
-									</li>
-									<li>
-										<a href="#ippt-page">IPPT Calculator</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#page2" class="scroll">About Me</a>
-							</li>
-							<li>
-								<a href="#page3" class="scroll">Contact Me</a>
-							</li>
-						</ul>
+		
+		
+		<!-- Home Page -->
+		<section data-role="page" id="home-page" class="cp">
+			<!--<a id="volume-btn" class="icon-btn fastclick" href="#" onclick="toggleVolume()"><i class="fa fa-volume-up"></i></a> -->
+			<div class="content" data-role="content">
+				<img src="images/LUSH.jpg" alt="Mountain View" style="width:320px;height:220px;">
+				<br><br><br><br><br><br>
+				<a id="login-btn" class="home-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#welcome-page" data-theme="n" onclick=";"><i class="fa fa-facebook-square float-left"></i>Log In</a>
+				<a id="play-btn" class="home-btn fastclick" href="#play-page" data-role="buttons" data-rel="page" data-transition="slide" data-theme="h" onclick=";">Create Account</a>
+				
+			</div>
+		</section>
+		<!-- End of Home Page -->
+		
+		<section data-role="page" id="welcome-page">
+			<div class="content" data-role="content">
+			<br><br><br><br>
+			<label id="score-label" class="play-label">&nbsp;Welcome</label>
+			<br>
+			<label id="score-label" class="play-label">&nbsp;&nbsp;&nbsp;&nbsp;Ms Pam!</label>
+			<br><br>
+			<div id="message-div" class="ui-grid-d">
+				<div class="ui-block-a"></div>
+				<label id="score-label" class="message-label">&nbsp;Let's get started with your lush travel.</label>
+				
+			</div>
+			</div>
+		
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
 						</li>
-
+						<li>
+							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#travel-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<section data-role="page" id="travel-page">
+			<div class="content" data-role="content">
+			<br><br>
+			
+			<br>
+			<div class="ui-field-contain">
+				<label id="travel-label" class="play-label">&nbsp;Travelling From:</label>
+				<input type="text" name="textinput-1" id="textinput-1" placeholder="Current Location" value="">
+			</div>
+				<br>
+			<div class="ui-field-contain">
+				<label id="travel-label" class="play-label">&nbsp;Travelling To:</label>
+				<input type="text" class="ui-block-b"name="textinput-1" id="textinput-2" placeholder="Current Location" value="ION Orchard">
+			</div>
+			<br>
+			<div class="ui-field-contain">
+				<label id="travel-label" class="play-label">&nbsp;Arrival Time:</label>
+				<input type="text" class="ui-block-b"name="textinput-1" id="textinput-2" placeholder="Current Location" value="5:15 pm">
+			</div>
+			
+			<br><br>
+			<div id="ion-image">
+			<img src="images/ion-map.png" alt="Mountain View" style="width:360px;height:360px;">
+			</div>
+			</div>
+		
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
+						</li>
+						<li>
+							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#route-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<section data-role="page" id="route-page">
+			<div class="content" data-role="content">
+			<br><br>
+			<img id="route-img" src="images/route.png" alt="Mountain View" >
+			</div>
+		
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
+						</li>
+						<li>
+							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#confirm-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<section data-role="page" id="confirm-page">
+			<div class="content" data-role="content">
+			<br><br><br><br>
+			<label id="score-label" class="play-label">&nbsp;Ms Pam</label>
+			<br>
+			<label id="score-label" class="play-label">&nbsp;&nbsp;Your taxi will arrive in 10 mins!</label>
+			<br><br>
+			<div id="message-div" class="ui-grid-d">
+				<div class="ui-block-a"></div>
+				<label id="score-label" class="message-label">&nbsp;See you soon!</label>
+				
+			</div>
+			</div>
+		
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
+						</li>
+						<li>
+							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#home-page" ><i class="fa fa-chevron-right"></i></br>Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<section data-role="page" id="service-page" class="cp">
+			<!--<a id="volume-btn" class="icon-btn fastclick" href="#" onclick="toggleVolume()"><i class="fa fa-volume-up"></i></a> -->
+			<div class="content" data-role="content">
+			<label id="score-label" class="play-label">&nbsp;Grooming Services:</label>
+			<form>
+				<fieldset data-role="controlgroup">
+				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
+				<label for="checkbox-v-2a">Hair</label>
+				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
+				<label for="checkbox-v-2b">Nails</label>
+				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
+				<label for="checkbox-v-2c">Massage</label>
+				</fieldset>
+			</form>
+			<br>
+			<br>
+			<label id="score-label" class="play-label">&nbsp;Entertainment:</label>
+			<form>
+				<fieldset data-role="controlgroup">
+				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
+				<label for="checkbox-v-2a">Movies</label>
+				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
+				<label for="checkbox-v-2b">Music</label>
+				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
+				<label for="checkbox-v-2c">Games</label>
+				</fieldset>
+			</form>
+			<br>
+			<br>
+			<label id="score-label" class="play-label">&nbsp;Reading:</label>
+			<form>
+				<fieldset data-role="controlgroup">
+				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
+				<label for="checkbox-v-2a">News</label>
+				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
+				<label for="checkbox-v-2b">Magazines</label>
+				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
+				<label for="checkbox-v-2c">Novels</label>
+				</fieldset>
+			</form>
+			</div>
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="back" data-transition="slide" href="#travel-page"><i class="fa fa-save"></i></br>Save</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Play Page -->
+		<section data-role="page" id="play-page">
+			<div id="good24">
+				<img src="images/24.png" />
+			</div>
+			<div data-role="content">
+				<label id="score-label" class="play-label">Score: 0</label>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<ul class="inline">
+							<li>
+								<img id="chance0" class="chance">
+							</li>
+							<li>
+								<img id="chance1" class="chance">
+							</li>
+							<li>
+								<img id="chance2" class="chance">
+							</li>
 						</ul>
 					</div>
-				</div>
-			</nav>
-		</header>
-		<section class="carousel-section">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				</ol>
 
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item active">
-						<div class="container">
-							<div class="row">
-								<a href="#probowl-page">
-								<div class="vcenter col-xs-4">
-									<img class="icon img-responsive" src="images/icon01.png">
-								</div>
-								<div class="vcenter col-xs-6">
-									<h1>ProBowl</h1>
-								</div>
-							</div>
-							</a>
-							<div class="carousel-caption"></div>
+					<div class="ui-block-b">
+						<label id="time-label" class="play-label float-right"> <i class="fa fa-clock-o"></i> 0:00 </label>
+					</div>
+				</div>
+
+				<div class="num-container">
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<a id="in1" class="num-btn fastclick" data-role="button" data-theme="i" onclick="numKey(1);">0</a>
+						</div>
+						<div class="ui-block-b">
+							<a id="in2" class="num-btn fastclick" data-role="button" data-theme="j" onclick="numKey(2);">0</a>
 						</div>
 					</div>
-					<div class="item">
-						<div class="container">
-							<div class="row">
-								<a href="#twenty4-page">
-								<div class="vcenter col-xs-4">
-									<img class="icon img-responsive" src="images/icon02.png">
-								</div>
-								<div class="vcenter col-xs-6">
-									<h1>Twenty4</h1>
-								</div> </a>
-								<div class="carousel-caption"></div>
-							</div>
+
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<a id="in3" class="num-btn fastclick" data-role="button" data-theme="k" onclick="numKey(3);">0</a>
 						</div>
-					</div>
-					<div class="item">
-						<div class="container">
-							<div class="row">
-								<a href="#ippt-page">
-								<div class="vcenter col-xs-4">
-									<img class="icon img-responsive" src="images/icon03.png">
-								</div>
-								<div class="vcenter col-xs-6">
-									<h1>IPPT Calculator</h1>
-								</div> </a>
-								<div class="carousel-caption"></div>
-							</div>
+						<div class="ui-block-b">
+							<a id="in4" class="num-btn fastclick" data-role="button" data-theme="l" onclick="numKey(4);">0</a>
 						</div>
 					</div>
 				</div>
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev"> <i class="fa fa-arrow-left"></i> </a>
-				<a class="right carousel-control" href="#carousel-example-generic"  data-slide="next"> <i class="fa fa-arrow-right"></i> </a>
-			</div>
-		</section>
 
-		<section id="probowl-page">
-			<div class="container">
-				<h1>ProBowl Stats</h1>
-				<div class="row">
-					<div class="col-md-3">
-						<div class="row">
-							<div class="col-md-12">
-								<img class="small-icon" src="images/icon01.png">
-								<br>
-								<br>
-							</div>
-
-							<div class="col-md-12" block>
-								<label class="float-right">Version 1.1.4</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Category: Sports</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Released: Jul 02, 2014</label>
-							</div>
+				<div class="op-container">
+					<div class="ui-grid-c">
+						<div class="ui-block-a">
+							<a class="op-btn fastclick" data-role="button" data-theme="m" onclick="opKey(this,'+');">+</a>
 						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://itunes.apple.com/us/app/probowl-stats/id890134051" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
-							</div>
+						<div class="ui-block-b">
+							<a class="op-btn fastclick" data-role="button" data-theme="m" onclick="opKey(this,'-');">-</a>
 						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://play.google.com/store/apps/details?id=com.gabmobi.BowlingStats" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
-							</div>
+						<div class="ui-block-c">
+							<a class="op-btn fastclick" data-role="button" data-theme="m" onclick="opKey(this,'x');">x</a>
+						</div>
+						<div class="ui-block-d">
+							<a class="op-btn fastclick" data-role="button" data-theme="m" onclick="opKey(this,'/');">÷</a>
 						</div>
 					</div>
-					<div class="col-md-9">
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Description</h3>
-								<p>
-									ProBowl Stats is a user-friendly application that helps to keep track of your bowling games at every practice or league games.
-									<br>
-									<br>
-									Ever played your best series but you don't remember when?
-									<br>
-									Do you remember your frames' score when you achieved your highest game?
-									<br>
-									How often did you get a strike or a spare for each game?
-									<br>
-									<br>
-									Compute detailed statistics of your games to monitor your progress and understand your strength/weakness.
-									<br>
-									<br>
-									Want to share your game play with your friends?
-									<br>
-									No problem, share your game scoresheet on popular social network platform.
+				</div>
 
-									2 ways of entering your game scores.
-									<br>
-									- Entry of every frame's pins fall
-									<br>
-									- Or just enter your score after each game
-								</p>
-							</div>
+				<div class="text-container">
+					<div class=ui-grid-a>
+						<div class="ui-block-a">
+							<a class="text-btn fastclick" data-role="button" data-theme="m" onclick="pass(this);">PASS</a>
 						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Screenshots</h3>
-							</div>
-							<div class="col-md-12">
-								<ul class="ss-wrapper">
-									<li class="ss-list">
-										<a href="images/screenshots/pb1.png"><img class="ss-image" src="images/screenshots/pb1.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/pb2.png"><img class="ss-image" src="images/screenshots/pb2.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/pb3.png"><img class="ss-image" src="images/screenshots/pb3.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/pb4.png"><img class="ss-image" src="images/screenshots/pb4.png"></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Reviews</h3>
-							</div>
-							<div class="col-md-12">
-								<div class="quotes">
-									<i class="float-left fa fa-quote-left"></i>
-									<div class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="item active">
-												<p>
-													<b>Simplicity is good</b>
-													<br>
-													5 stars for no Ads. Keying in score is easy. UI can be improved.
-												</p>
-											</div>
-											<div class="item">
-												<p>
-													<b>Cool & fun! Super cool app!</b> I can now record my games without hassle and share with friends too! Awesome.
-												</p>
-											</div>
-											<div class="item">
-												<p>
-													<b>Good but room for improvement</b> No ads definitely is a plus for this apps.. Allows you to see the score of every frame is a plus as well... Will worth 5 stars if able to show what are the pins that you have hit or missed...
-												</p>
-											</div>
-										</div>
-									</div>
-									<i class="float-right fa fa-quote-right"></i>
-								</div>
-							</div>
+						<div class="ui-block-b">
+							<a class="text-btn fastclick" data-role="button" data-theme="m" onclick="reset(this);">RESET</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-
-		<section id="twenty4-page">
-			<div class="container">
-				<h1>Twenty4</h1>
-				<div class="row">
-					<div class="col-md-3">
-						<div class="row">
-							<div class="col-md-12">
-								<img class="small-icon" src="images/icon02.png">
-								<br>
-								<br>
-							</div>
-
-							<div class="col-md-12" block>
-								<label class="float-right">Version 1.0.0</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Category: Games</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Released: Jul 27, 2014</label>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://itunes.apple.com/us/app/twenty4/id900097186" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://play.google.com/store/apps/details?id=com.gzaph.cal24game" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-9">
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Description</h3>
-								<p>
-									Challenge yourself in this simple mathematics game.
-									<br>
-									<br>
-									How to play?
-									<br>
-									Do you remember your frames' score when you achieved your highest game?
-									<br>
-									In each puzzle, there are 4 random numbers. Use basic mathematical operations (+, -, x, /) on all 4 numbers to achieve a result of '24'. Each number can only be used once.
-									<br>
-									Solve as many puzzles within 5 minutes.
-									<br>
-									All the puzzles are solvable!
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Screenshots</h3>
-							</div>
-							<div class="col-md-12">
-								<ul class="ss-wrapper">
-									<li class="ss-list">
-										<a href="images/screenshots/tf1.png"><img class="ss-image" src="images/screenshots/tf1.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/tf2.png"><img class="ss-image" src="images/screenshots/tf2.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/tf3.png"><img class="ss-image" src="images/screenshots/tf3.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/tf4.png"><img class="ss-image" src="images/screenshots/tf4.png"></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Reviews</h3>
-							</div>
-							<div class="col-md-12">
-								<div class="quotes">
-									<i class="float-left fa fa-quote-left"></i>
-									<div class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="item active">
-												<p>
-													<b>I love this game! ♥️ </b>
-													<br>
-													This game is based on the card game "24" which I used to play in middle school. This game makes you think unlike other games out there. Thanks!
-												</p>
-											</div>
-											<div class="item">
-												<p>
-													Challenging game! Keep the mind actively working
-												</p>
-											</div>
-											<div class="item">
-												<p>
-													<b>Interesting game!</b>
-												</p>
-											</div>
-
-										</div>
-									</div>
-									<i class="float-right fa fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="footer-container" data-role="footer">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-home"></i></br>Home</a>
+						</li>
+						<li>
+							<a id="restart-btn" class="nav-btn fastclick" href="#" onclick=";"><i class="fa fa-chevron-right"></i></br>Restart</a>
+						</li>
+						<li>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#result-page" onclick="complete();"><i class="fa fa-trophy"></i></br>End</a>
+						</li>
+					</ul>
 				</div>
 			</div>
+
 		</section>
+		<!-- End of Play Page -->
 
-		<section id="ippt-page">
-			<div class="container">
-				<h1>IPPT Calculator</h1>
-				<div class="row">
-					<div class="col-md-3">
-						<div class="row">
-							<div class="col-md-12">
-								<img class="small-icon" src="images/icon03.png">
-								<br>
-								<br>
-							</div>
-
-							<div class="col-md-12" block>
-								<label class="float-right">Version 1.0.2</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Category: Utilities</label>
-							</div>
-							<div class="col-md-12" block>
-								<label class="float-right">Released: Aug 9, 2014</label>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="#" target="_blank"> <img class="store-icon" src="images/appstore.svg"> </a>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://play.google.com/store/apps/details?id=com.gzaph.ippt" target="_blank"><img class="store-icon" src="images/playstore.svg"></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-9">
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Description</h3>
-								<p>
-									IPPT Calculator is an app that helps you to calculate your scores/points in this new IPPT scoring system.
-									<br>
-									<br>
-									With this app, you are able to
-									<br>
-									1) Determine the number of push-ups, sit-ups and 2.4Km timing to achieve the points
-									<br>
-									2) Determine the points achieved by the number of push-ups, sit-ups and 2.4Km timing.
-									<br>
-									3) Set your target award and set the respective goals for individual station.
-									<br>
-									4) Overview of scoring system based on your age.
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Screenshots</h3>
-							</div>
-							<div class="col-md-12">
-								<ul class="ss-wrapper">
-									<li class="ss-list">
-										<a href="images/screenshots/ip1.png"><img class="ss-image" src="images/screenshots/ip1.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/ip2.png"><img class="ss-image" src="images/screenshots/ip2.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/ip3.png"><img class="ss-image" src="images/screenshots/ip3.png"></a>
-									</li>
-									<li class="ss-list">
-										<a href="images/screenshots/ip4.png"><img class="ss-image" src="images/screenshots/ip4.png"></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<h3>Reviews</h3>
-							</div>
-							<div class="col-md-12">
-								<div class="quotes">
-									<i class="float-left fa fa-quote-left"></i>
-									<div class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-
-										</div>
-									</div>
-									<i class="float-right fa fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		<!-- Result Page -->
+		<section data-role="page" id="result-page">
+			<div class="content" data-role="content">
+				<label id="yourscore">Your Score: </label>
+				<label id="highestscore">Highest Score: </label>
+				<a id="replay-btn" class="result-btn fastclick" href="#play-page" data-role="button" data-rel="back" data-theme="h" onclick=";">Play Again</a>
+				<a id="leader-btn" class="result-btn fastclick" href="#" data-role="button" data-theme="n" onclick=";"><i class="fa fa-trophy"></i> Leaderboard</a>
 			</div>
 		</section>
+		<!-- End of Result Page -->
+
+		<!-- Leaderboards -->
+		<section data-role="page" id="leader-page">
+			<div data-role="content"></div>
+		</section>
+		<!-- End of Leader Page -->
 	</body>
 </html>

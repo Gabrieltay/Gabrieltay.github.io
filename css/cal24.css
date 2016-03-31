@@ -22,6 +22,7 @@ background-size: cover;
   -webkit-backface-visibility: visible;
 }
 
+
 #home-page.ui-page-active, #result-page.ui-page-active {
   height: 100%;
   width: 100%;
@@ -123,6 +124,10 @@ ul.inline li img.chance {
     font-size: 1.5em !important;
   }
 
+  #travel-label {
+	font-size: 0.5em !important;  
+  }
+  
   #time-label {
     font-size: 1.5em !important;
   }
@@ -176,6 +181,10 @@ ul.inline li img.chance {
     font-size: 1.8em !important;
   }
 
+  #travel-label {
+    font-size: 1em !important;
+  }
+  
   #time-label {
     font-size: 1.8em !important;
   }
@@ -228,7 +237,11 @@ ul.inline li img.chance {
   #score-label {
     font-size: 3em !important;
   }
-
+  
+  #travel-label {
+    font-size: 1em !important;
+  }
+  
   #time-label {
     font-size: 3em !important;
   }
@@ -280,6 +293,10 @@ ul.inline li img.chance {
 
   #score-label {
     font-size: 3.75em !important;
+  }
+  
+  #travel-label {
+    font-size: 1.75em !important;
   }
 
   #time-label {
@@ -334,6 +351,10 @@ ul.inline li img.chance {
   #score-label {
     font-size: 2.25em !important;
   }
+  
+  #travel-label {
+    font-size: 2.25em !important;
+  }
 
   #time-label {
     font-size: 2.25em !important;
@@ -362,7 +383,7 @@ ul.inline li img.chance {
   }
 }
 section {
-  background-color: #E7F9F9 !important;
+  background-color: #FFFFFF !important;
 }
 
 .num-btn.disabled {
@@ -418,7 +439,7 @@ section {
 }
 @font-face {
   font-family: 'animceace';
-  src: url("../fonts/animeace2_reg.otf");
+  src: url("../fonts/Typewriter.otf");
 }
 @font-face {
   font-family: 'scorefont';
@@ -433,6 +454,10 @@ section {
   src: url("../fonts/Quicksand-Regular.otf");
 }
 #score-label {
+  font-family: 'animceace';
+}
+
+#travel-label {
   font-family: 'animceace';
 }
 
@@ -452,3 +477,24 @@ section {
 .op-btn {
   font-family: 'tusj';
 }
+
+#message-div {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#ion-image img{
+margin-left: 25%;
+	margin-right: 25%;
+
+
+}
+
+#route-image img{
+	width: 100%;
+margin-left: 25%;
+	margin-right: 25%;
+
+
+}
+
+
