@@ -17,266 +17,100 @@
 		<script src="js/animo.js"></script>
 		<script src="js/fastclick.js"></script>
 		<script src="js/calculator.js"></script>
-		<script src="js/jquery-picture.js"></script>
 		<!-- cordova -->
 		<!-- cordova facebook plugin -->
 		<!-- facebook js sdk -->
-		
+
+		<script src="phonegap.js"></script>
+		<!--
+		<script src="cdv-plugin-fb-connect.js"></script>
+
+		<script src="facebook-js-sdk.js"></script>
+		-->
+		<!--<script type="text/javascript" src="js/facebookSdk.js"></script>-->
+		<!--<script type="text/javascript" src="js/facebookconnect.js"></script>-->
 		<script>
+			/*
+			 document.addEventListener('deviceready', function() {
+			 try {
+			 alert('Device is ready! Make sure you set your app_id below this alert.');
+			 FB.init({
+			 appId : "775607835795969",
+			 nativeInterface : CDV.FB,
+			 status : true,
+			 useCachedDialogs : false
+			 });
+			 } catch (e) {
+			 alert(e);
+			 }
+			 }, false);
+			 */
+			document.addEventListener('deviceready', function() {
+				navigator.splashscreen.hide();
+			}, false);
 
 			window.addEventListener('load', function() {
 				new FastClick(document.body);
 				new FastClick($(".fastclick"));
-				//getLoginStatus();
 			}, false);
-			
 		</script>
 	</head>
 	<body>
 		<div id="fb-root"></div>
-
-		
-		
+		<div id="good24">
+			<!--<label> 24 </label>--> 
+			<img src="images/24.png" />
+		</div>
 		<!-- Home Page -->
 		<section data-role="page" id="home-page" class="cp">
-			<!--<a id="volume-btn" class="icon-btn fastclick" href="#" onclick="toggleVolume()"><i class="fa fa-volume-up"></i></a> -->
+			<!--<a id="volume-btn" class="icon-btn fastclick" href="#" onclick="toggleVolume()"><i class="fa fa-volume-up"></i></a>-->
 			<div class="content" data-role="content">
-				<img src="images/LUSH.jpg" alt="Mountain View" style="width:320px;height:220px;">
-				<br><br><br><br><br><br>
-				<a id="login-btn" class="home-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#welcome-page" data-theme="n" onclick=";"><i class="fa fa-facebook-square float-left"></i>Log In</a>
-				<a id="play-btn" class="home-btn fastclick" href="#" data-role="buttons" data-rel="page" data-transition="slide" data-theme="h" onclick=";">Create Account</a>
-				
+				<a id="play-btn" class="home-btn fastclick" href="#play-page" data-role="button" data-rel="page" data-transition="slide" data-theme="k" onclick="start();">Play</a>
+				<!--<a id="resume-btn" class="home-btn fastclick" href="#play-page" data-role="button" data-rel="page" data-transition="slide" data-theme="j" onclick="resume();">Resume</a>-->
+				<!--<a id="login-btn" class="home-btn fastclick" data-role="button" data-theme="n" onclick="fbLogin();"><i class="fa fa-facebook-square float-left"></i>Log In</a>-->
 			</div>
 		</section>
 		<!-- End of Home Page -->
-		
-		<section data-role="page" id="welcome-page">
-			<div class="content" data-role="content">
-			<br><br><br><br>
-			<label id="score-label" class="play-label">&nbsp;Welcome</label>
-			<br>
-			<label id="score-label" class="play-label">&nbsp;&nbsp;&nbsp;&nbsp;Ms Pam!</label>
-			<br><br>
-			<div id="message-div" class="ui-grid-d">
-				<div class="ui-block-a"></div>
-				<label id="score-label" class="message-label">&nbsp;Let's get started with your lush travel.</label>
-				
-			</div>
-			</div>
-		
-			<div class="footer-container" data-role="footer">
-				<div data-role="navbar" data-iconpos="top">
-					<ul>
-						<li>
-							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
-						</li>
-						<li>
-							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
-						</li>
-						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#travel-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
-		<section data-role="page" id="travel-page">
-			<div class="content" data-role="content">
-			<br><br>
-			
-			<br>
-			<div class="ui-field-contain">
-				<label id="travel-label" class="play-label">&nbsp;Travelling From:</label>
-				<input type="text" name="textinput-1" id="textinput-1" placeholder="Current Location" value="">
-			</div>
-				<br>
-			<div class="ui-field-contain">
-				<label id="travel-label" class="play-label">&nbsp;Travelling To:</label>
-				<input type="text" class="ui-block-b"name="textinput-1" id="textinput-2" placeholder="Current Location" value="ION Orchard">
-			</div>
-			<br>
-			<div class="ui-field-contain">
-				<label id="travel-label" class="play-label">&nbsp;Arrival Time:</label>
-				<input type="text" class="ui-block-b"name="textinput-1" id="textinput-2" placeholder="Current Location" value="5:15 pm">
-			</div>
-			
-			<br><br>
-			<div id="ion-image">
-			<img src="images/ion-map.png" alt="Mountain View" style="width:360px;height:360px;">
-			</div>
-			</div>
-		
-			<div class="footer-container" data-role="footer">
-				<div data-role="navbar" data-iconpos="top">
-					<ul>
-						<li>
-							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
-						</li>
-						<li>
-							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
-						</li>
-						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#route-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
-		<section data-role="page" id="route-page">
-			<div class="content" data-role="content">
-			
-			<br>
-			<label id="travel-label" class="play-label">&nbsp;Estimated Cost : $38.70</label>
-			<img id="route-img" src="images/route.png" alt="Mountain View" > 
-			
-			</div>
-		
-			<div class="footer-container" data-role="footer">
-				<div data-role="navbar" data-iconpos="top">
-					<ul>
-						<li>
-							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
-						</li>
-						<li>
-							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
-						</li>
-						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#confirm-page" onclick="complete();"><i class="fa fa-chevron-right"></i></br>Next</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
-		<section data-role="page" id="confirm-page">
-			<div class="content" data-role="content">
-			<br><br><br><br>
-			<label id="score-label" class="play-label">&nbsp;Ms Pam</label>
-			<br>
-			<label id="score-label" class="play-label">&nbsp;&nbsp;Your LUSH will arrive in 10 mins!</label>
-			<br><br>
-			<div id="message-div" class="ui-grid-d">
-				<div class="ui-block-a"></div>
-				<label id="score-label" class="message-label">&nbsp;See you soon!</label>
-				<br><br>
-				<img src="images/LUSH.jpg" alt="Mountain View" style="width:320px;height:220px;">
-			</div>
-			</div>
-		
-			<div class="footer-container" data-role="footer">
-				<div data-role="navbar" data-iconpos="top">
-					<ul>
-						<li>
-							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
-						</li>
-						<li>
-							<a id="restart-btn" class="nav-btn fastclick" href="#service-page" onclick=";"><i class="fa fa-heart"></i></br>Preferences</a>
-						</li>
-						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#home-page" ><i class="fa fa-chevron-right"></i></br>Next</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
-		<section data-role="page" id="service-page" class="cp">
-			<!--<a id="volume-btn" class="icon-btn fastclick" href="#" onclick="toggleVolume()"><i class="fa fa-volume-up"></i></a> -->
-			<div class="content" data-role="content">
-			<label id="score-label" class="play-label">&nbsp;Grooming Services:</label>
-			<form>
-				<fieldset data-role="controlgroup">
-				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
-				<label for="checkbox-v-2a">Hair</label>
-				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
-				<label for="checkbox-v-2b">Nails</label>
-				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
-				<label for="checkbox-v-2c">Massage</label>
-				</fieldset>
-			</form>
-			<br>
-			<br>
-			<label id="score-label" class="play-label">&nbsp;Entertainment:</label>
-			<form>
-				<fieldset data-role="controlgroup">
-				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
-				<label for="checkbox-v-2a">Movies</label>
-				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
-				<label for="checkbox-v-2b">Music</label>
-				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
-				<label for="checkbox-v-2c">Games</label>
-				</fieldset>
-			</form>
-			<br>
-			<br>
-			<label id="score-label" class="play-label">&nbsp;Reading:</label>
-			<form>
-				<fieldset data-role="controlgroup">
-				<input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a" data-theme="c">
-				<label for="checkbox-v-2a">News</label>
-				<input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b" data-theme="c">
-				<label for="checkbox-v-2b">Magazines</label>
-				<input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c" data-theme="c">
-				<label for="checkbox-v-2c">Novels</label>
-				</fieldset>
-			</form>
-			</div>
-			<div class="footer-container" data-role="footer">
-				<div data-role="navbar" data-iconpos="top">
-					<ul>
-						<li>
-							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-chevron-left"></i></br>Back</a>
-						</li>
-						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="back" data-transition="slide" href="#travel-page"><i class="fa fa-save"></i></br>Save</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
+
 		<!-- Play Page -->
 		<section data-role="page" id="play-page">
-			<div id="good24">
-				<img src="images/24.png" />
-			</div>
+
 			<div data-role="content">
 				<label id="score-label" class="play-label">Score: 0</label>
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<ul class="inline">
-							<li>
-								<img id="chance0" class="chance">
-							</li>
-							<li>
-								<img id="chance1" class="chance">
-							</li>
-							<li>
-								<img id="chance2" class="chance">
-							</li>
-						</ul>
-					</div>
+				<div class="inline-container">
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<ul class="inline">
+								<li>
+									<img id="chance0" class="chance">
+								</li>
+								<li>
+									<img id="chance1" class="chance">
+								</li>
+								<li>
+									<img id="chance2" class="chance">
+								</li>
+							</ul>
+						</div>
 
-					<div class="ui-block-b">
-						<label id="time-label" class="play-label float-right"> <i class="fa fa-clock-o"></i> 0:00 </label>
+						<div class="ui-block-b">
+							<label id="time-label" class="play-label float-right"> <i class="fa fa-clock-o"></i> 0:00 </label>
+						</div>
 					</div>
 				</div>
-
 				<div class="num-container">
 					<div class="ui-grid-a">
 						<div class="ui-block-a">
 							<a id="in1" class="num-btn fastclick" data-role="button" data-theme="i" onclick="numKey(1);">0</a>
 						</div>
 						<div class="ui-block-b">
-							<a id="in2" class="num-btn fastclick" data-role="button" data-theme="j" onclick="numKey(2);">0</a>
+							<a id="in2" class="num-btn fastclick" data-role="button" data-theme="jj" onclick="numKey(2);">0</a>
 						</div>
 					</div>
 
 					<div class="ui-grid-a">
 						<div class="ui-block-a">
-							<a id="in3" class="num-btn fastclick" data-role="button" data-theme="k" onclick="numKey(3);">0</a>
+							<a id="in3" class="num-btn fastclick" data-role="button" data-theme="kk" onclick="numKey(3);">0</a>
 						</div>
 						<div class="ui-block-b">
 							<a id="in4" class="num-btn fastclick" data-role="button" data-theme="l" onclick="numKey(4);">0</a>
@@ -304,10 +138,10 @@
 				<div class="text-container">
 					<div class=ui-grid-a>
 						<div class="ui-block-a">
-							<a class="text-btn fastclick" data-role="button" data-theme="m" onclick="pass(this);">PASS</a>
+							<a class="text-btn fastclick" data-role="button" data-theme="p" onclick="pass(this);">PASS</a>
 						</div>
 						<div class="ui-block-b">
-							<a class="text-btn fastclick" data-role="button" data-theme="m" onclick="reset(this);">RESET</a>
+							<a class="text-btn fastclick" data-role="button" data-theme="p" onclick="reset(this);">RESET</a>
 						</div>
 					</div>
 				</div>
@@ -319,10 +153,10 @@
 							<a id="home-btn" class="nav-btn fastclick" href="#home-page" data-rel="back"><i class="fa fa-home"></i></br>Home</a>
 						</li>
 						<li>
-							<a id="restart-btn" class="nav-btn fastclick" href="#" onclick=";"><i class="fa fa-chevron-right"></i></br>Restart</a>
+							<a id="restart-btn" class="nav-btn fastclick" href="#" onclick="start();"><i class="fa fa-play"></i></br>Restart</a>
 						</li>
 						<li>
-							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#result-page" onclick="complete();"><i class="fa fa-trophy"></i></br>End</a>
+							<a id="end-btn" class="nav-btn fastclick" data-role="button" data-rel="page" data-transition="slide" href="#" onclick="complete();"><i class="fa fa-trophy"></i></br>End</a>
 						</li>
 					</ul>
 				</div>
@@ -334,18 +168,15 @@
 		<!-- Result Page -->
 		<section data-role="page" id="result-page">
 			<div class="content" data-role="content">
+				<label id="answer">Answer: </label>
 				<label id="yourscore">Your Score: </label>
 				<label id="highestscore">Highest Score: </label>
-				<a id="replay-btn" class="result-btn fastclick" href="#play-page" data-role="button" data-rel="back" data-theme="h" onclick=";">Play Again</a>
-				<a id="leader-btn" class="result-btn fastclick" href="#" data-role="button" data-theme="n" onclick=";"><i class="fa fa-trophy"></i> Leaderboard</a>
+				<a id="replay-btn" class="result-btn fastclick" href="#play-page" data-role="button" data-rel="back" data-theme="j" onclick="start();">Play Again</a>
+				<!--<a id="leader-btn" class="result-btn fastclick" href="#" data-role="button" data-theme="n" onclick="start();"><i class="fa fa-trophy"></i> Leaderboard</a>-->
+				
 			</div>
 		</section>
 		<!-- End of Result Page -->
 
-		<!-- Leaderboards -->
-		<section data-role="page" id="leader-page">
-			<div data-role="content"></div>
-		</section>
-		<!-- End of Leader Page -->
 	</body>
 </html>

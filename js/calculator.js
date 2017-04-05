@@ -17,9 +17,13 @@ var passes = 3;
 var fbscore = 0;
 var buttonTone = null;
 var clearTone = null;
+var badTone = null;
+var bgTone = null;
 var path = "";
 var playPath = "";
 var goodPath = "";
+var badPath = "";
+var solution = "";
 
 var init = function() {
 	initLocalStorage();
@@ -27,24 +31,54 @@ var init = function() {
 		$('#volume-btn>i').toggleClass('fa-volume-up fa-volume-off');
 	path = window.location.pathname;
 	path = path.substr(path, path.length - 10);
+
 	playPath = path + "media/tone.wav";
 	goodPath = path + "media/good.wav";
-	
+	badPath = path + "media/bad.wav";
+	bgPath = path + "media/bg.mp3";
+
 	buttonTone = new Media(playPath, // success callback
 	function() {
 	},
 	// error callback
 	function(err) {
+		alert(err);
 	});
 	buttonTone.setVolume(window.localStorage.getItem("volume"));
-	
+
 	clearTone = new Media(goodPath, // success callback
 	function() {
 	},
 	// error callback
 	function(err) {
+		alert(err);
 	});
 	clearTone.setVolume(window.localStorage.getItem("volume"));
+
+	badTone = new Media(badPath, // success callback
+	function() {
+	},
+	// error callback
+	function(err) {
+		alert(err);
+	});
+	badTone.setVolume(window.localStorage.getItem("volume"));
+
+	bgTone = new Media(bgPath, // success callback
+	function() {
+	},
+	// error callback
+	function(err) {
+		alert(err);
+	},
+	// status
+	function(status) {
+		if (status == Media.MEDIA_STOPPED) {
+			bgTone.play();
+		}
+	});
+	bgTone.setVolume(window.localStorage.getItem(0.0));
+
 }
 //	onDeviceReady();
 
@@ -301,6 +335,11 @@ function add_result(one_result, regularExp) {
 	}
 	resstr = resstr + one_result + " = " + wanted + "\n";
 	numofsol++;
+
+	if (numofsol == 1) {
+		solution = one_result;
+		console.log(solution);
+	}
 }
 
 function process() {
@@ -336,9 +375,6 @@ function generate() {
 function timerEvent() {
 	countdown--;
 	var prog = Math.floor((maxtime - countdown) / maxtime * 100);
-	//$('#hourglass-img').animo("rotate", {
-	//	degrees : ((maxtime - countdown) * 180)
-	//});
 	$('#time-label').html(toMinSec(countdown));
 	if (countdown == 0) {
 		complete();
@@ -347,6 +383,7 @@ function timerEvent() {
 }
 
 function start() {
+	//bgTone.play();
 	score = 0;
 	passes = 3;
 	$("[id^=chance]").addClass("chance");
@@ -369,7 +406,6 @@ function reset(listener) {
 	operNum = 0;
 	$(".op-btn").removeClass("selected");
 	for (var i = 1; i <= 4; i++) {
-		//$('#in' + i).prop('disabled', false);
 		$('#in' + i).removeClass("disabled");
 		$('#in' + i).removeClass("selected");
 		$('#in' + i).text(inputs[i - 1]);
@@ -377,8 +413,9 @@ function reset(listener) {
 }
 
 function numKey(num) {
-	buttonTone.stop();
-	buttonTone.play();
+	/*	buttonTone.stop();
+	 buttonTone.play();
+	 */
 	if (lastKey != num) {
 		$('#in' + lastKey).removeClass("selected");
 		$('#in' + num).addClass("selected");
@@ -412,15 +449,16 @@ function numKey(num) {
 		operNum++;
 		if (operNum == 3 && res == wanted) {
 			$('#in' + num).text(res);
-			//$('#in' + num).animo({
-			//	animation : 'tada'
-			//});
 			display();
-			clearTone.play();
+			//clearTone.play();
 			score++;
 			$('#score-label').text("Score: " + score);
 			process();
 		} else {
+			/*
+			 if (operNum == 3)
+			 badTone.play();
+			 */
 			$('#in' + num).text(res);
 			$('#in' + lastKey).addClass('disabled');
 			lastKey = num;
@@ -451,18 +489,20 @@ function getScore() {
 	return score;
 }
 
-function complete() {
+function complete() {console.log("complete")
 	var highest = window.localStorage.getItem("highest");
-	if (highest < score)
+	if (highest < score) {
 		window.localStorage.setItem("highest", score);
-
-	if (getFbLogin()) {
-		//alert(score + ' - ' + getFbScore())
-		if (score > getFbScore()) {
-			updateScore(score);
-		}
 	}
-
+	/*
+	 if (getFbLogin()) {
+	 //alert(score + ' - ' + getFbScore())
+	 if (score > getFbScore()) {
+	 updateScore(score);
+	 }
+	 }
+	 */
+	$("#answer").text("Answer: " + solution);
 	$("#yourscore").text("Your Score: " + score);
 	$('#highestscore').text("Highest Score: " + window.localStorage.getItem("highest"));
 	$(':mobile-pagecontainer').pagecontainer('change', '#result-page', {
@@ -491,4 +531,6 @@ function toggleVolume() {
 	}
 	buttonTone.setVolume(window.localStorage.getItem("volume"));
 	clearTone.setVolume(window.localStorage.getItem("volume"));
+	badTone.setVolume(window.localStorage.getItem("volume"));
 }
+
