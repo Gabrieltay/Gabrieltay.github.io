@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'allfont';
+    src: url('../fonts/Odin Rounded - Bold.otf');
+}
+
+@font-face {
+    font-family: 'headerfont';
+    src: url('../fonts/Quicksand-Regular.otf');
+}
+
+*:not(input[type=date],
+input[type=number], input[type=text]) {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;
+	/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;
+	/* prevent copy paste, to allow, change 'none' to 'text' */
+	-webkit-highlight: none;
+}
+body {
+	overflow-x: hidden;
+	background-color: #222222   !important;
+	-webkit-backface-visibility: visible;
+}
+
+section {
+  background-color: #3D3D3D !important;
+}
+
+section>h1 {
+  font-family: 'headerfont' !important;
+}
+
+div,a, {
+  font-family: 'allfont' !important;
+}
+
+.table-container {
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #999999;
+	border-radius: 14px !important;
+	
+	table {
+		width: 100%;
+		height:100%;
+		margin:0px;
+		padding:0px;
+		text-align: center;
+		border-collapse: collapse !important;
+		border-radius: 10px !important;
+	}
+	
+	td {
+    width: 50%;
+    border: 0px solid black;
+  }
+  
+	tr:last-child td:last-child {
+	  border-bottom-right-radius:14px;
+	}
+	
+	tr:first-child td:first-child {
+	  border-top-left-radius:14px;
+	}
+	
+	tr:first-child td:last-child {
+	  border-top-right-radius:14px;
+	}
+	
+	tr:last-child td:first-child{
+	  border-bottom-left-radius:14px;
+	}
+	
+	tr:nth-child(odd) { 
+	  background-color:#cccccc; 
+	}
+	
+	tr:nth-child(even) { 
+	  background-color:#ffffff; 
+	}
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.situp {
+  color: #FBB050;  
+}
+      
+.situp .ui-slider-bg {
+  background: #FBB050 !important;
+}
+      
+.pushup {
+  color: #4FC4F6;
+}
+      
+.pushup .ui-slider-bg {
+  background: #4FC4F6 !important;
+}
+      
+.running {
+  color: #2FCC71;
+}
+      
+.running .ui-slider-bg {
+  background: #2FCC71 !important;
+}
+
+.result label{
+  color: #E64C65;
+}
+
+.reward-label {
+  color: #F7B519 !important;
+}
